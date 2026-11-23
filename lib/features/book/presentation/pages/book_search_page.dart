@@ -407,12 +407,23 @@ class _BookSearchPageState extends ConsumerState<BookSearchPage> {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8.r),
-                          child: CachedNetworkImage(
-                            imageUrl: bookSearchList[index].cover,
-                            width: 48.w,
-                            height: 64.h,
-                            fit: BoxFit.cover,
-                          ),
+                          child: bookSearchList[index].cover.isNotEmpty
+                              ? CachedNetworkImage(
+                                  imageUrl: bookSearchList[index].cover,
+                                  width: 48.w,
+                                  height: 64.h,
+                                  fit: BoxFit.cover,
+                                  errorWidget: (_, __, ___) => Container(
+                                    width: 48.w,
+                                    height: 64.h,
+                                    color: AppColors.grey_F2,
+                                  ),
+                                )
+                              : Container(
+                                  width: 48.w,
+                                  height: 64.h,
+                                  color: AppColors.grey_F2,
+                                ),
                         ),
                         SizedBox(
                           width: 252.w,

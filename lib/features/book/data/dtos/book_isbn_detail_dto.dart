@@ -1,3 +1,5 @@
+import 'package:book_flutter/shared/utils/image_url.dart';
+
 import '../../domain/entities/book_isbn_detail_entity.dart';
 
 class BookIsbnDetailDto {
@@ -11,7 +13,7 @@ class BookIsbnDetailDto {
       author: json['author'] as String? ?? '',
       description: json['description'] as String? ?? '',
       isbn13: json['isbn13'] as String? ?? '',
-      cover: json['cover'] as String?,
+      cover: toHttpsImageUrl(json['cover'] as String?),
       publisher: json['publisher'] as String? ?? '',
       itemPage: json['itemPage'] as int? ?? 0,
       bookNo: json['book_no'] as int?,
