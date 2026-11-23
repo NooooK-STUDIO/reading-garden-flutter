@@ -101,6 +101,12 @@
 
     </application>
 
+    <!-- screenOrientation="portrait"가 암묵적으로 세로 화면 기능을 필수로 요구해
+         태블릿·데스크톱·XR 기기에서 설치가 막히므로 선택사항으로 선언한다. -->
+    <uses-feature
+        android:name="android.hardware.screen.portrait"
+        android:required="false" />
+
     <!-- Https 권한 -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- 앨범 권한. API 33+는 Photo Picker를 쓰므로 권한이 필요 없고,
